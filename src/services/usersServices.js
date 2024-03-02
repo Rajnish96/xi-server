@@ -5,10 +5,8 @@ const registerUser = async (req, res) => {
     try {
         const reqBody = req.body
         let data = new Users(reqBody)
-
         const result = await data.save()
-
-        return res.status(200).send({ message: `Registered Successfully`, result }).end()
+        return res.status(200).send({ message: `Successfully`, result }).end()
     } catch (err) {
         return res.status(422).json(err).end()
     }
