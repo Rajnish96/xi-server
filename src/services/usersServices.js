@@ -1,12 +1,14 @@
 
 const Users = require('../schemas/users')
+const Documents = require('../schemas/documents')
 
 const registerUser = async (req, res) => {
     try {
         const reqBody = req.body
-        let data = new Users(reqBody)
+        let data = new Users(reqBody[0])
+        const documentsData = new Documents({ documents: reqBody[1] });
         const result = await data.save()
-        return res.status(200).send({ message: `Successfully`, result }).end()
+        return res.status(200).send({ message: `Successfully`, result, documentsData }).end()
     } catch (err) {
         return res.status(422).json(err).end()
     }
