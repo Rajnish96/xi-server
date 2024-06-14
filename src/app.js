@@ -10,7 +10,9 @@ app.use(cors())
 const users = require('./routes/userRouter')
 const { port } = require('./config/env')
 
-
+app.get('/', (req, res)=>{
+res.send("Hello")
+})
 app.use('/register', users)
 
 app.listen(port, () => {
