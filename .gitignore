@@ -127,3 +127,4 @@ dist
 # logger
 logger/
 package-lock.json
+.env
